@@ -1,12 +1,12 @@
 import React from 'react';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/Dashboard'; // Corrected import path
 
-const App = () => {
+function App() {
   return (
     <div className="App">
       <Dashboard />
     </div>
   );
-};
+}
 
 export default App;
