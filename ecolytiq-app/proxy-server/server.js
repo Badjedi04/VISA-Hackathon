@@ -1,30 +1,20 @@
 const express = require('express');
 const cors = require('cors');
-const axios = require('axios');
-require('dotenv').config();
+const bodyParser = require('body-parser');
 
 const app = express();
+const PORT = 5000;
+
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-const apiKey = process.env.API_KEY;
-const apiUrl = process.env.API_URL;
-
-app.get('/api/co2-models', async (req, res) => {
-    try {
-        const response = await axios.get(`${apiUrl}/your-endpoint`, {
-            headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Content-Type': 'application/json'
-            }
-        });
-        res.json(response.data);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
+app.post('/recommend', (req, res) => {
+    const food = req.body.food;
+    console.log(`Received food name: ${food}`);
+    const response = { message: `Recommendation for food: ${food}` };
+    res.json(response);
 });
 
-const port = 3001;
-app.listen(port, () => {
-    console.log(`Proxy server running on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });

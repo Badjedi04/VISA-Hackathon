@@ -6,6 +6,7 @@ import ActivityLog from './pages/ActivityLog';
 import Statistics from './pages/Statistics';
 import Settings from './pages/Settings';
 import About from './pages/About';
+import Dashboard from './components/Dashboard';
 import logo from './logo.svg';
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
               <li><Link to="/statistics">Statistics</Link></li>
               <li><Link to="/settings">Settings</Link></li>
               <li><Link to="/about">About</Link></li>
+              <li><Link to="/dashboard">Dashboard</Link></li> {/* Add Dashboard link */}
             </ul>
           </nav>
         </header>
@@ -34,6 +36,7 @@ function App() {
             <Route path="/statistics" element={<Statistics />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/about" element={<About />} />
+            <Route path="/dashboard" element={<Dashboard />} /> {/* Add Dashboard route */}
           </Routes>
         </main>
       </div>
